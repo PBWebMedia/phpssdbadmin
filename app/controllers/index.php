@@ -24,7 +24,5 @@ class IndexController extends BaseController
 	}
 	
 	function logout($ctx){
-		unset($_SESSION['login_user']);
-		_redirect('login');
 	}
 }

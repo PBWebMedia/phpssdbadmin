@@ -2,11 +2,6 @@
 class LoginController extends Controller
 {
 	function init($ctx){
-		session_start();
-		$ctx->user =$_SESSION['login_user'];
-		if($ctx->user){
-			_redirect('/');
-		}
 	}
 
 	function index($ctx){
@@ -48,14 +43,6 @@ class LoginController extends Controller
 		if(!SafeUtil::verify_captcha($_POST['verify_code'])){
 			$ctx->errmsg = 'Wrong captcha code';
 			return;
-		}
-
-		if($name === $conf['name'] && $password === $conf['password']){
-			$_SESSION['login_user'] = 1;
-			_redirect('/');
-			return;
-		}else{
-			$ctx->errmsg = "Wrong username or password!";
 		}
 	}
 }

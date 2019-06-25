@@ -5,11 +5,6 @@ class BaseController extends Controller
 	
 	function init($ctx){
 		session_start();
-		$ctx->user =$_SESSION['login_user'];
-		if(!$ctx->user){
-			_redirect('login');
-			return;
-		}
 		
 		$servers = array();
 		if(isset(App::$config['ssdb'])){
